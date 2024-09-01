@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=3 uid="uid://bfsmnyn5cy23j"]
+
+[ext_resource type="Material" uid="uid://curhfsswqg5os" path="res://Materials/stick_material.tres" id="1_cc1xt"]
+[ext_resource type="Material" uid="uid://eo3qr23f3qle" path="res://Materials/metal_material.tres" id="2_cdj31"]
+[ext_resource type="Material" uid="uid://csec514n0sa36" path="res://Materials/transparent_material.tres" id="3_oykxl"]
+[ext_resource type="Material" uid="uid://b8wew6o0l7ht6" path="res://Materials/textured_material.tres" id="4_0sc4u"]
+[ext_resource type="Material" uid="uid://bxk45ki4hdvl0" path="res://Materials/ground_material.tres" id="5_n7x03"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ffmcy"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_5q3qt"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_wxyit"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wdo68"]
+
+[node name="StickMan" type="Node3D"]
+
+[node name="Left_leg" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.237192, 1.44253, 0, -0.199028, 1.71915, 0, 0, 0, 0.431678, -0.725121, 0.416834, -0.0182751)
+material_override = ExtResource("1_cc1xt")
+mesh = SubResource("BoxMesh_ffmcy")
+
+[node name="Left_arm" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.112406, 1.75291, 0, -0.308833, -0.638006, 0, 0, 0, 0.431678, -0.954591, 2.2613, -0.0182751)
+material_override = ExtResource("1_cc1xt")
+mesh = SubResource("BoxMesh_ffmcy")
+
+[node name="Right_arm" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.112406, -1.75291, 0, 0.308833, -0.638006, 0, 0, 0, 0.431678, 1.01762, 2.2613, -0.0182751)
+material_override = ExtResource("1_cc1xt")
+mesh = SubResource("BoxMesh_ffmcy")
+
+[node name="Left_leg2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.237192, -1.44253, 0, 0.199028, 1.71915, 0, 0, 0, 0.431678, 0.73319, 0.416834, -0.0182751)
+material_override = ExtResource("1_cc1xt")
+mesh = SubResource("BoxMesh_ffmcy")
+
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.346091, 0, 0, 0, 2.18505, 0, 0, 0, 0.396953, 0, 2.32028, 0)
+material_override = ExtResource("1_cc1xt")
+mesh = SubResource("BoxMesh_ffmcy")
+
+[node name="Head" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.65711, 0)
+material_override = ExtResource("1_cc1xt")
+mesh = SubResource("SphereMesh_5q3qt")
+
+[node name="Metal" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.34818, 0, 0)
+material_override = ExtResource("2_cdj31")
+mesh = SubResource("CapsuleMesh_wxyit")
+
+[node name="Transparent" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.14863, 0, 0)
+material_override = ExtResource("3_oykxl")
+mesh = SubResource("CapsuleMesh_wxyit")
+
+[node name="Textured" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.00628, 0, 0)
+material_override = ExtResource("4_0sc4u")
+mesh = SubResource("CapsuleMesh_wxyit")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.624997, 0.780627, 0, -0.780627, 0.624997, 4.59282, 2.76168, 1.78258)
+visible = false
+light_energy = 0.713
+shadow_enabled = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.30614, -0.597059, -1.02549)
+visible = false
+light_color = Color(0.709804, 0.113725, 0.286275, 1)
+light_energy = 5.586
+omni_range = 1.78499
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(5.30911, 0, 0, 0, 1, 0, 0, 0, 3.23198, 6.04861, -1.5623, 0)
+material_override = ExtResource("5_n7x03")
+mesh = SubResource("PlaneMesh_wdo68")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.999987, 0.00253401, -0.00448195, 0.0051487, -0.492159, 0.87049, 0, -0.870502, -0.492165, 8.39304, 1.36684, -0.831505)
+light_color = Color(0.193809, 0.680378, 0.748647, 1)
+shadow_enabled = true
+spot_range = 4.94398
+spot_angle = 27.7386
